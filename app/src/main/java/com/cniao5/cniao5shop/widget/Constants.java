@@ -1,5 +1,8 @@
 package com.cniao5.cniao5shop.widget;
 
+/**
+ * 常量
+ */
 public class Constants {
 
     public static final String CAMPAIGN_ID = "campaign_id";

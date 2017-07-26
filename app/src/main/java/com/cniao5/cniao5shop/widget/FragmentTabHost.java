@@ -1,9 +1,5 @@
 package com.cniao5.cniao5shop.widget;
 
-/**
- * 功能描述：修改过的FragmentTabHost,保存fragment实例不销毁
- */
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -21,7 +17,9 @@ import android.widget.TabHost;
 import android.widget.TabWidget;
 
 import java.util.ArrayList;
-
+/**
+ * 功能描述：修改过的FragmentTabHost,保存fragment实例不销毁
+ */
 public class FragmentTabHost extends TabHost implements
         TabHost.OnTabChangeListener {
     private final ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();

@@ -1,14 +1,19 @@
-package com.cniao5.cniao5shop;
+package com.cniao5.cniao5shop.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.cniao5.cniao5shop.MyApplication;
+import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.lidroid.xutils.ViewUtils;
 
+/**
+ * BaseActivity封装
+ */
 public abstract class BaseActivity extends AppCompatActivity {
 
     private void initToolbar() {

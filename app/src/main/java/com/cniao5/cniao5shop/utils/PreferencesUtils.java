@@ -3,6 +3,9 @@ package com.cniao5.cniao5shop.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+/**
+ * Preferences工具类
+ */
 public class PreferencesUtils {
 
     /**

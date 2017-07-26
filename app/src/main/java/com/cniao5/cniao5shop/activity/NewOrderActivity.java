@@ -1,4 +1,4 @@
-package com.cniao5.cniao5shop;
+package com.cniao5.cniao5shop.activity;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -13,6 +13,8 @@ import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.cniao5.cniao5shop.MyApplication;
+import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.adapter.OrderItemAdapter;
 import com.cniao5.cniao5shop.adapter.WareOrderAdapter;
 import com.cniao5.cniao5shop.adapter.layoutmanager.FullyLinearLayoutManager;

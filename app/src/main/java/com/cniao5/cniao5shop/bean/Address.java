@@ -8,7 +8,9 @@ package com.cniao5.cniao5shop.bean;
 
 import java.io.Serializable;
 
-
+/**
+ * 地址
+ */
 public class Address implements Serializable, Comparable<Address> {
 
     private Long id;

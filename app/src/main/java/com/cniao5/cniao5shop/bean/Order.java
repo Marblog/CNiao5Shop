@@ -3,27 +3,38 @@ package com.cniao5.cniao5shop.bean;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * 订单
+ */
 public class Order implements Serializable {
 
-    public static final int STATUS_SUCCESS=1; //支付成功的订单
-    public static final int STATUS_PAY_FAIL=-2; //支付失败的订单
-    public static final int STATUS_PAY_WAIT=0; //：待支付的订单
+    public static final int STATUS_SUCCESS = 1; //支付成功的订单
+    public static final int STATUS_PAY_FAIL = -2; //支付失败的订单
+    public static final int STATUS_PAY_WAIT = 0; //：待支付的订单
 
-    private Long id;
+    private int id;
+    private int userId;
     private String orderNum;
-    private Long createdTime;
-    private Float amount;
-    private int  status;
+    private String createdTime;
+    private int amount;
+    private int status;
     private List<OrderItem> items;
-    private Address address;
+//    private Address address;
 
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getOrderNum() {
@@ -34,19 +45,19 @@ public class Order implements Serializable {
         this.orderNum = orderNum;
     }
 
-    public Long getCreatedTime() {
+    public String getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(Long createdTime) {
+    public void setCreatedTime(String createdTime) {
         this.createdTime = createdTime;
     }
 
-    public Float getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(Float amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
@@ -66,11 +77,11 @@ public class Order implements Serializable {
         this.items = items;
     }
 
-    public Address getAddress() {
-        return address;
-    }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+//    public Address getAddress() {
+//        return address;
+//    }
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 }

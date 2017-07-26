@@ -1,4 +1,4 @@
-package com.cniao5.cniao5shop;
+package com.cniao5.cniao5shop.activity;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.cniao5.cniao5shop.MyApplication;
+import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.adapter.BaseAdapter;
 import com.cniao5.cniao5shop.adapter.MyOrderAdapter;
 import com.cniao5.cniao5shop.adapter.decoration.CardViewtemDecortion;
@@ -137,7 +139,6 @@ public class MyOrderActivity extends BaseActivity implements TabLayout.OnTabSele
                     Intent intent = new Intent(MyOrderActivity.this,NewOrderActivity.class);
                     intent.putExtra("order",(Serializable)order.getItems());
                     intent.putExtra("sign",Constants.ORDER);
-                    intent.putExtra("address",order.getAddress());
                     intent.putExtra("price",order.getAmount());
                     startActivity(intent,true);
                 }

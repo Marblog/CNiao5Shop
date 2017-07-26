@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cniao5.cniao5shop.WaresDetailsActivity;
+import com.cniao5.cniao5shop.activity.WaresDetailsActivity;
 import com.cniao5.cniao5shop.bean.Wares;
 import com.cniao5.cniao5shop.widget.Constants;
 

@@ -1,4 +1,4 @@
-package com.cniao5.cniao5shop;
+package com.cniao5.cniao5shop.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.cniao5.cniao5shop.MyApplication;
+import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.Favorite;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.bean.Wares;

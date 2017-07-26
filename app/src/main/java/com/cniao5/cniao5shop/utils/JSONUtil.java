@@ -5,6 +5,9 @@ import com.google.gson.GsonBuilder;
 
 import java.lang.reflect.Type;
 
+/**
+ * Json工具类
+ */
 public class JSONUtil {
 
     private static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();

@@ -6,6 +6,9 @@ import android.text.TextUtils;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.widget.Constants;
 
+/**
+ * 用户管理类
+ */
 public class UserLocalData {
 
     //存储用户数据

@@ -2,6 +2,9 @@ package com.cniao5.cniao5shop.bean;
 
 import java.io.Serializable;
 
+/**
+ * 商品
+ */
 public class Wares implements Serializable{
 
     private Long id;

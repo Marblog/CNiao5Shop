@@ -1,4 +1,4 @@
-package com.cniao5.cniao5shop;
+package com.cniao5.cniao5shop.activity;
 
 import android.content.Intent;
 import android.text.Html;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.cniao5.cniao5shop.MyApplication;
+import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SimpleCallback;

@@ -8,6 +8,10 @@ import java.io.IOException;
 
 import dmax.dialog.SpotsDialog;
 
+/**
+ * 带加载框的Callback封装
+ * @param <T>
+ */
 public abstract class SpotsCallBack<T> extends SimpleCallback<T> {
 
     private SpotsDialog dialog;

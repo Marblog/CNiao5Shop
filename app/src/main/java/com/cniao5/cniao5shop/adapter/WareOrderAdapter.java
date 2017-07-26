@@ -9,6 +9,9 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
+/**
+ * 订单商品
+ */
 public class WareOrderAdapter extends SimpleAdapter<ShoppingCart> {
 
     public WareOrderAdapter(Context context, List<ShoppingCart> datas) {

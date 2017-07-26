@@ -10,7 +10,9 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
-
+/**
+ * DES加密工具类
+ */
 public class DESUtil {
 
     public static final String ALGORITHM_DES = "DES/CBC/PKCS5Padding";

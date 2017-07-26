@@ -1,6 +1,8 @@
 package com.cniao5.cniao5shop.bean;
 
-
+/**
+ * 分类页左部导航数据
+ */
 public class Category extends BaseBean {
 
 

@@ -8,13 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cniao5.cniao5shop.LoginActivity;
+import com.cniao5.cniao5shop.activity.LoginActivity;
 import com.cniao5.cniao5shop.MyApplication;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.lidroid.xutils.ViewUtils;
 
+/**
+ * BaseFragment
+ */
 public abstract class BaseFragment extends Fragment {
 
     private View mRootView;

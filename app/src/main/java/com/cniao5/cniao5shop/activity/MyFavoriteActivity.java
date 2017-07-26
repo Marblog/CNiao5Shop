@@ -1,10 +1,12 @@
-package com.cniao5.cniao5shop;
+package com.cniao5.cniao5shop.activity;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 
+import com.cniao5.cniao5shop.MyApplication;
+import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.adapter.BaseAdapter;
 import com.cniao5.cniao5shop.adapter.FavoriteAdapter;
 import com.cniao5.cniao5shop.adapter.decoration.CardViewtemDecortion;
@@ -19,6 +21,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 我的收藏
+ */
 public class MyFavoriteActivity extends BaseActivity {
 
     @ViewInject(R.id.recycle_view)

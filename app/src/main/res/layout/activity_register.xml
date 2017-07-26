@@ -70,7 +70,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 style="@style/editText_base"
-                android:text="15523745589"
+                android:text="18581391726"
                 android:hint="请输入常用手机号码"
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"

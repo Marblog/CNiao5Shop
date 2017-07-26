@@ -3,6 +3,9 @@ package com.cniao5.cniao5shop.utils;
 import android.content.Context;
 import android.widget.Toast;
 
+/**
+ * Toast工具类
+ */
 public class ToastUtils {
     public static void show(Context context, int resId) {
         show(context, context.getResources().getText(resId), Toast.LENGTH_LONG);

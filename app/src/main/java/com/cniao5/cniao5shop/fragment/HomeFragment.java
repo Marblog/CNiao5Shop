@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.cniao5.cniao5shop.R;
-import com.cniao5.cniao5shop.WaresListActivity;
+import com.cniao5.cniao5shop.activity.WaresListActivity;
 import com.cniao5.cniao5shop.adapter.HomeCampaignAdapter;
 import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.Banner;

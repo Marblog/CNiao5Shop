@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+/**
+ * Manifest工具类
+ */
 public class ManifestUtil {
 
     public static String getMetaDataValue(Context context,String name,String def){

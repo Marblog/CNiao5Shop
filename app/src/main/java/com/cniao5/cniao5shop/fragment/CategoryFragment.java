@@ -32,7 +32,9 @@ import com.squareup.okhttp.Response;
 
 import java.util.List;
 
-
+/**
+ * 分类列表
+ */
 public class CategoryFragment extends BaseFragment {
 
     @ViewInject(R.id.recyclerview_category)

@@ -1,8 +1,8 @@
 package com.cniao5.cniao5shop;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,12 +16,14 @@ import com.cniao5.cniao5shop.fragment.CategoryFragment;
 import com.cniao5.cniao5shop.fragment.HomeFragment;
 import com.cniao5.cniao5shop.fragment.HotFragment;
 import com.cniao5.cniao5shop.fragment.MineFragment;
-import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.FragmentTabHost;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * MainActivity
+ */
 public class MainActivity extends AppCompatActivity {
 
     private FragmentTabHost mTabhost;

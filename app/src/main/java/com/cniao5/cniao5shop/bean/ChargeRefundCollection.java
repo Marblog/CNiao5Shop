@@ -1,8 +1,12 @@
 package com.cniao5.cniao5shop.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ChargeRefundCollection {
+/**
+ * Charge支付
+ */
+public class ChargeRefundCollection implements Serializable{
 
     private String object;
     private String url;

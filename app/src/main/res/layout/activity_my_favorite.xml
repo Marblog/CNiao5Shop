@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.cniao5.cniao5shop.MyFavoriteActivity">
+    tools:context="com.cniao5.cniao5shop.activity.MyFavoriteActivity">
 
     <include
         layout="@layout/activity_toolbar"/>

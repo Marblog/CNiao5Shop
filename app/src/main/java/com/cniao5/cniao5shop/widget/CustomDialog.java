@@ -14,7 +14,6 @@ import com.cniao5.cniao5shop.R;
 
 /**
  * 自定义对话框
- * Created by dali on 2016/11/26.
  */
 
 public class CustomDialog extends Dialog {

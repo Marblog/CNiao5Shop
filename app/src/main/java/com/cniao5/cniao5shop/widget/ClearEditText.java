@@ -14,6 +14,9 @@ import android.view.View.OnTouchListener;
 
 import com.cniao5.cniao5shop.R;
 
+/**
+ * 带清除按钮的自定义TextView
+ */
 public class ClearEditText extends AppCompatEditText implements OnTouchListener, OnFocusChangeListener, TextWatcher {
 
     //EditText右侧的删除按钮

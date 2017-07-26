@@ -3,7 +3,7 @@ package com.cniao5.cniao5shop.http;
 import android.content.Context;
 import android.content.Intent;
 
-import com.cniao5.cniao5shop.LoginActivity;
+import com.cniao5.cniao5shop.activity.LoginActivity;
 import com.cniao5.cniao5shop.MyApplication;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.utils.ToastUtils;
@@ -12,6 +12,10 @@ import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 
+/**
+ * 简单的Callback封装
+ * @param <T>
+ */
 public abstract class SimpleCallback<T> extends BaseCallBack<T> {
 
     protected Context mContext;

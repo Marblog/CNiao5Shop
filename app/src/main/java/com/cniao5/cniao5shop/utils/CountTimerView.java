@@ -5,6 +5,9 @@ import android.widget.TextView;
 
 import com.cniao5.cniao5shop.R;
 
+/**
+ * 计时器
+ */
 public class CountTimerView extends CountDownTimer {
 
     public static final int TIME_COUNT = 61000;//时间防止从59s开始显示（以倒计时60s为例子）

@@ -2,6 +2,9 @@ package com.cniao5.cniao5shop.bean;
 
 import java.io.Serializable;
 
+/**
+ * 收藏
+ */
 public class Favorite implements Serializable{
 
     private Long id;

@@ -1,5 +1,8 @@
 package com.cniao5.cniao5shop.bean;
 
+/**
+ * banner轮播
+ */
 public class Banner extends BaseBean{
 
     private String name;

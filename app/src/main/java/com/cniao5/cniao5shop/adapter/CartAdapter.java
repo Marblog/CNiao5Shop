@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.ShoppingCart;
 import com.cniao5.cniao5shop.utils.CartProvider;
-import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.cniao5.cniao5shop.widget.NumberAddSubView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -18,6 +17,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 购物车
+ */
 public class CartAdapter extends SimpleAdapter<ShoppingCart> implements BaseAdapter.OnItemClickListenner {
 
     private CheckBox mCheckBox;

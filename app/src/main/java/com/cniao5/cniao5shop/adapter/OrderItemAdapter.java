@@ -9,6 +9,9 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
+/**
+ * 订单Item
+ */
 public class OrderItemAdapter extends SimpleAdapter<OrderItem> {
 
     public OrderItemAdapter(Context context, List<OrderItem> datas) {

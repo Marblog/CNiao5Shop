@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+/**
+ * Callback封装
+ * @param <T>
+ */
 public abstract class BaseCallBack<T> {
 
     public Type mType;

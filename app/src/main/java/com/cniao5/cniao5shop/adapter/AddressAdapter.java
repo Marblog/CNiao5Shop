@@ -8,10 +8,12 @@ import android.widget.TextView;
 
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.Address;
-import com.cniao5.cniao5shop.bean.Campaign;
 
 import java.util.List;
 
+/**
+ * 地址
+ */
 public class AddressAdapter extends SimpleAdapter<Address> {
 
     private AddressLisneter addressLisneter;

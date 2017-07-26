@@ -2,6 +2,9 @@ package com.cniao5.cniao5shop.msg;
 
 import java.io.Serializable;
 
+/**
+ * 响应基类
+ */
 public class BaseResMsg implements Serializable{
     public final static int STATUS_SUCCESS = 1;
     public final static int STATUS_ERROR = 2;

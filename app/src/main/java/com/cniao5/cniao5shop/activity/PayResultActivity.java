@@ -1,10 +1,12 @@
-package com.cniao5.cniao5shop;
+package com.cniao5.cniao5shop.activity;
 
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cniao5.cniao5shop.MainActivity;
+import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.widget.Constants;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;

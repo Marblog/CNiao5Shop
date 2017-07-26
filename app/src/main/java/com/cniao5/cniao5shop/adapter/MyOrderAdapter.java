@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.Order;
 import com.cniao5.cniao5shop.bean.OrderItem;
+import com.cniao5.cniao5shop.utils.ScreenUtil;
 import com.squareup.picasso.Picasso;
 import com.w4lle.library.NineGridAdapter;
 import com.w4lle.library.NineGridlayout;
@@ -65,9 +66,9 @@ public class MyOrderAdapter extends SimpleAdapter<Order>{
         }
 
         NineGridlayout nineGridlayout = (NineGridlayout) holder.getView(R.id.iv_ngrid_layout);
-        nineGridlayout.setGap(50);
-        nineGridlayout.setDefaultWidth(50);
-        nineGridlayout.setDefaultHeight(50);
+        nineGridlayout.setGap(10);
+        nineGridlayout.setDefaultWidth(ScreenUtil.getScreenWidth(mContext) / 4);
+        nineGridlayout.setDefaultHeight(ScreenUtil.getScreenWidth(mContext) / 4);
         nineGridlayout.setAdapter(new OrderItemAdapter(mContext,order.getItems()));
     }
 
@@ -98,7 +99,7 @@ public class MyOrderAdapter extends SimpleAdapter<Order>{
         @Override
         public long getItemId(int position) {
             OrderItem item = items.get(position);
-            return item == null ? null : item.getId();
+        return item == null ? null : item.getOrderId();
         }
 
         @Override

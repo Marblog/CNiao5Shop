@@ -5,7 +5,7 @@ import com.bigkoo.pickerview.model.IPickerViewData;
 import java.util.List;
 
 /**
- * Created by dali on 2017/7/26.
+ * 全国地址选择数据
  */
 
 public class JsonBean implements IPickerViewData {

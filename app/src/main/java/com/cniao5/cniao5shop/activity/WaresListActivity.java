@@ -1,4 +1,4 @@
-package com.cniao5.cniao5shop;
+package com.cniao5.cniao5shop.activity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cjj.MaterialRefreshLayout;
+import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.adapter.BaseAdapter;
 import com.cniao5.cniao5shop.adapter.HWAdapter;
 import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
@@ -21,6 +22,9 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.List;
 
+/**
+ * 商品列表
+ */
 public class WaresListActivity extends BaseActivity implements Pager.onPageListener<Wares>, TabLayout.OnTabSelectedListener, View.OnClickListener {
 
 

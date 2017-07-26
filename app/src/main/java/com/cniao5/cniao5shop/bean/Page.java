@@ -2,6 +2,10 @@ package com.cniao5.cniao5shop.bean;
 
 import java.util.List;
 
+/**
+ * 分类页
+ * @param <T>
+ */
 public class Page<T> {
 
     private  int currentPage;

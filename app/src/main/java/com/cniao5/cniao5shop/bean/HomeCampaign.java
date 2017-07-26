@@ -2,6 +2,9 @@ package com.cniao5.cniao5shop.bean;
 
 import java.io.Serializable;
 
+/**
+ * 首页三个大图数据
+ */
 public class HomeCampaign implements Serializable {
 
     private long id;

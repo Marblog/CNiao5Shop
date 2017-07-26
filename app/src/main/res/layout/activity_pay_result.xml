@@ -6,7 +6,7 @@
               android:layout_height="match_parent"
               android:background="@color/bg_color"
               android:orientation="vertical"
-              tools:context="com.cniao5.cniao5shop.PayResultActivity">
+              tools:context="com.cniao5.cniao5shop.activity.PayResultActivity">
 
     <include layout="@layout/activity_toolbar"/>
 

@@ -12,6 +12,9 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
 
+/**
+ * 收藏
+ */
 public class FavoriteAdapter extends SimpleAdapter<Favorite> {
 
     public FavoriteAdapter(Context context, List<Favorite> datas) {

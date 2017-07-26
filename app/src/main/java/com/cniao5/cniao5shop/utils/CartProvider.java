@@ -10,6 +10,9 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 购物车管理类
+ */
 public class CartProvider {
 
     /**

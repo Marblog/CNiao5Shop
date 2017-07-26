@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by dali on 2017/7/26.
+ * 获取全国地址数据
  */
 
 public class GetJsonDataUtil {

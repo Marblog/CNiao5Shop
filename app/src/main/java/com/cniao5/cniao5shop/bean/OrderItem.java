@@ -2,10 +2,14 @@ package com.cniao5.cniao5shop.bean;
 
 import java.io.Serializable;
 
+/**
+ * 订单Item
+ */
 public class OrderItem implements Serializable{
 
-    private Long id;
-    private Float amount;
+    public int id;
+    private Long orderId;
+    private Long ware_id;
     private Wares wares;
 
     public Wares getWares() {
@@ -16,22 +20,27 @@ public class OrderItem implements Serializable{
         this.wares = wares;
     }
 
-    public Long getId() {
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-
-    public Float getAmount() {
-        return amount;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
-    public void setAmount(Float amount) {
-        this.amount = amount;
+    public Long getWare_id() {
+        return ware_id;
     }
 
-
+    public void setWare_id(Long ware_id) {
+        this.ware_id = ware_id;
+    }
 }

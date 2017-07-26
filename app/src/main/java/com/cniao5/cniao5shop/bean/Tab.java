@@ -1,6 +1,11 @@
 package com.cniao5.cniao5shop.bean;
 
-public class Tab {
+import java.io.Serializable;
+
+/**
+ * 首页底部导航
+ */
+public class Tab implements Serializable{
     private  int title;
     private  int icon;
     private Class fragment;

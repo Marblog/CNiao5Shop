@@ -2,6 +2,9 @@ package com.cniao5.cniao5shop.msg;
 
 import com.cniao5.cniao5shop.bean.Charge;
 
+/**
+ * 订单数据返还
+ */
 public class OrderRespMsg {
     private String orderNum;
 

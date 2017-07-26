@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.cniao5.cniao5shop.NewOrderActivity;
+import com.cniao5.cniao5shop.activity.NewOrderActivity;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.adapter.CartAdapter;
 import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
