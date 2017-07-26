@@ -5,11 +5,9 @@ import android.os.Looper;
 import android.text.TextUtils;
 
 import com.cniao5.cniao5shop.MyApplication;
-import com.google.gson.Gson;
-import com.google.gson.JsonParseException;
+import com.cniao5.cniao5shop.utils.JSONUtil;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
-import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
@@ -48,8 +46,6 @@ public class OkHttpHelper {
 
     private static OkHttpHelper mInstance;
 
-    private Gson mGson;
-
     private Handler mHandler;
 
     private OkHttpHelper() {
@@ -58,8 +54,6 @@ public class OkHttpHelper {
         okHttpClient.setReadTimeout(10, TimeUnit.SECONDS);
         okHttpClient.setWriteTimeout(10, TimeUnit.SECONDS);
         okHttpClient.setConnectTimeout(10, TimeUnit.SECONDS);
-
-        mGson = new Gson();
 
         mHandler = new Handler(Looper.getMainLooper());
     }
@@ -141,7 +135,7 @@ public class OkHttpHelper {
                             /**
                              * Gson：将json字符串转成type类型对象
                              */
-                            Object object = mGson.fromJson(resultStr, callback.mType);
+                            Object object = JSONUtil.fromJson(resultStr,callback.mType);
 //                            callback.onSuccess(response, object);
                             callbackSuccess(callback, response, object);
                         } catch (com.google.gson.JsonParseException e) {

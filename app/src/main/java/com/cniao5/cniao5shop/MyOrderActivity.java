@@ -104,8 +104,8 @@ public class MyOrderActivity extends BaseActivity implements TabLayout.OnTabSele
         if (!TextUtils.isEmpty(userId)) {
             Map<String, String> params = new HashMap<>();
 
-            params.put("user_id", userId + "");
-            params.put("status", status + "");
+            params.put("user_id", userId);
+            params.put("status", status+"");
 
             okHttpHelper.doGet(Constants.API.ORDER_LIST, params, new SpotsCallBack<List<Order>>(this) {
                 @Override

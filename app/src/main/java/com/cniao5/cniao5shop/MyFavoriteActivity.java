@@ -40,7 +40,6 @@ public class MyFavoriteActivity extends BaseActivity {
             okHttpHelper.doGet(Constants.API.FAVORITE_LIST, params, new SpotsCallBack<List<Favorite>>(this) {
                 @Override
                 public void onSuccess(Response response, List<Favorite> favorites) {
-
                     showFavorite(favorites);
                 }
 

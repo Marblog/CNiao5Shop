@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:contentInsetEnd="56dp"
+        app:contentInsetEnd="40dp"
         app:isShowSearchView="true"/>
 
 

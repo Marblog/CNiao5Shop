@@ -3,16 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.cniao5.cniao5shop.MyFavoriteActivity">
 
-    <com.cniao5.cniao5shop.widget.CnToolbar
-        app:RightButtonText="你好"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </com.cniao5.cniao5shop.widget.CnToolbar>
+    <include
+        layout="@layout/activity_toolbar"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_view"
