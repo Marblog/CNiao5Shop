@@ -1,15 +1,11 @@
 package com.cniao5.cniao5shop;
 
-import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.cniao5.cniao5shop.adapter.AddressAdapter;
 import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
@@ -17,9 +13,8 @@ import com.cniao5.cniao5shop.bean.Address;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
 import com.cniao5.cniao5shop.msg.BaseResMsg;
-import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
-import com.lidroid.xutils.ViewUtils;
+import com.cniao5.cniao5shop.widget.CustomDialog;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.squareup.okhttp.Response;
 
@@ -37,7 +32,7 @@ public class AddressListActivity extends BaseActivity {
 
     private OkHttpHelper mHttpHelper = OkHttpHelper.getInstance();
 
-    private Dialog mDialog;
+    private CustomDialog mDialog;
 
     @Override
     public int getLayoutId() {
@@ -52,9 +47,8 @@ public class AddressListActivity extends BaseActivity {
     @Override
     public void setToolbar() {
         getToolbar().setTitle("我的地址");
-
-        getToolbar().setRightButtonIcon(R.drawable.icon_add);
-
+        getToolbar().setleftButtonIcon(R.drawable.icon_back_32px);
+        getToolbar().setRightImgButtonIcon(R.drawable.icon_add_w);
         getToolbar().setRightButtonOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,20 +66,11 @@ public class AddressListActivity extends BaseActivity {
         if (mDialog != null)
             return;
 
-        mDialog = new Dialog(AddressListActivity.this);
-
-        View view = LayoutInflater.from(this).inflate(R.layout.template_dialog, null);
-        TextView mTvTitle = (TextView) view.findViewById(R.id.tv_title);
-        Button mBtnEnsure = (Button) view.findViewById(R.id.btn_ensure);
-        Button mBtnCancel = (Button) view.findViewById(R.id.btn_cancel);
-
-        mTvTitle.setText("您确定删除该地址吗？");
-
-        mDialog.setTitle("友情提示");
-
-        mBtnEnsure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        CustomDialog.Builder builder = new CustomDialog.Builder(this);
+        builder.setMessage("您确定删除该地址吗？");
+        builder.setTitle("友情提示");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
                 deleteAddress(address);
                 initAddress();
 
@@ -94,15 +79,16 @@ public class AddressListActivity extends BaseActivity {
             }
         });
 
-        mBtnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mDialog.isShowing())
-                    mDialog.dismiss();
-            }
-        });
+        builder.setNegativeButton("取消",
+                new android.content.DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (mDialog.isShowing())
+                            mDialog.dismiss();
+                    }
+                });
 
-        mDialog.setContentView(view);
+        mDialog = builder.create();
+        mDialog.show();
 
     }
 

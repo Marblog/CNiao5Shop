@@ -54,26 +54,38 @@
     <!-- 商品title样式-->
     <style name="ware_title">
         <item name="android:textColor">@color/gray</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:maxLines">3</item>
     </style>
     <!--商品价格样式-->
     <style name="ware_price">
         <item name="android:textColor">@color/crimson</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <!-- 大按钮样式-->
     <style name="bigButton">
-        <item name="android:textSize">@dimen/bigButtonTextSize</item>
+        <item name="android:textSize">@dimen/smallButtonTextSize</item>
         <item name="android:textColor">@color/white_color_selector</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingLeft">@dimen/largePadding</item>
         <item name="android:paddingRight">@dimen/largePadding</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:minHeight">@dimen/normalButtonHeight</item>
     </style>
+
+    <!-- 大按钮样式-->
+    <style name="bigButton2">
+        <item name="android:textSize">@dimen/smallButtonTextSize</item>
+        <item name="android:textColor">@color/white_color_selector</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/largePadding</item>
+        <item name="android:paddingRight">@dimen/largePadding</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
     <!--小按钮样式-->
     <style name="smallButton">
         <item name="android:textSize">@dimen/smallButtonTextSize</item>
@@ -114,6 +126,12 @@
     <style name="bigRedButton" parent="@style/bigButton">
         <item name="android:background">@drawable/bg_btn_style_red</item>
     </style>
+
+    <!--大红色按钮样式-->
+    <style name="bigRedButton2" parent="@style/bigButton2">
+        <item name="android:background">@drawable/bg_btn_style_red</item>
+    </style>
+
     <!--大灰色按钮样式-->
     <style name="bigGreyButton" parent="@style/bigButton">
         <item name="android:textColor">@color/grey_btn_text_color</item>
@@ -156,6 +174,13 @@
     <style name="radioButton">
         <item name="android:background">@drawable/selector_checkbox_green</item>
         <item name="android:button">@null</item>
+    </style>
+
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
     </style>
 
 </resources>

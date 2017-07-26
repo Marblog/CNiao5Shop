@@ -15,11 +15,8 @@ import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.Page;
 import com.cniao5.cniao5shop.bean.Wares;
 import com.cniao5.cniao5shop.utils.Pager;
-import com.cniao5.cniao5shop.utils.ToastUtils;
-import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
 import com.google.gson.reflect.TypeToken;
-import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.List;
@@ -40,9 +37,6 @@ public class WaresListActivity extends BaseActivity implements Pager.onPageListe
     private MaterialRefreshLayout mRefreshLayout;
 
     private HWAdapter waresAdapter;
-
-    @ViewInject(R.id.toolbar)
-    private CnToolbar mToolbar;
 
     private long campaignId = 0;
     private int orderBy = 0;
@@ -75,11 +69,10 @@ public class WaresListActivity extends BaseActivity implements Pager.onPageListe
     @Override
     public void setToolbar() {
         getToolbar().setTitle(R.string.wares_list);
-        getToolbar().setRightButtonIcon(R.drawable.icon_grid_32);
+        getToolbar().setRightImgButtonIcon(R.drawable.icon_grid_32);
         getToolbar().getRightButton().setTag(ACTION_LIST);
         getToolbar().setRightButtonOnClickListener(this);
-
-        System.out.println("toolbar---"+getToolbar().toString());
+        getToolbar().setleftButtonIcon(R.drawable.icon_back_32px);
     }
 
     private void getData() {
@@ -182,14 +175,14 @@ public class WaresListActivity extends BaseActivity implements Pager.onPageListe
 
         if (ACTION_LIST == action) {
             //更改图标，布局，tag
-            mToolbar.setRightButtonIcon(R.drawable.icon_list_32);
-            mToolbar.getRightButton().setTag(ACTION_GRID);
+            getToolbar().setRightImgButtonIcon(R.drawable.icon_list_32);
+            getToolbar().getRightButton().setTag(ACTION_GRID);
             waresAdapter.reSetLayout(R.layout.template_grid_wares);
             mRecycleViewWares.setLayoutManager(new GridLayoutManager(this, 2));
             mRecycleViewWares.setAdapter(waresAdapter);
         } else if (ACTION_GRID == action) {
-            mToolbar.setRightButtonIcon(R.drawable.icon_grid_32);
-            mToolbar.getRightButton().setTag(ACTION_LIST);
+            getToolbar().setRightImgButtonIcon(R.drawable.icon_grid_32);
+            getToolbar().getRightButton().setTag(ACTION_LIST);
             waresAdapter.reSetLayout(R.layout.template_hot_wares);
             mRecycleViewWares.setLayoutManager(new LinearLayoutManager(this));
             mRecycleViewWares.setAdapter(waresAdapter);

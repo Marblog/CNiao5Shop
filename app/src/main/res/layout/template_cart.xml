@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:background="@drawable/selector_list_item"
-    android:padding="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -26,23 +25,25 @@
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/drawee_view_cart"
             android:layout_gravity="center_vertical"
-            android:layout_width="120dp"
-            android:layout_height="120dp" />
+            android:layout_width="75dp"
+            android:layout_height="75dp" />
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_marginLeft="10dp"
-            android:padding="10dp"
+            android:layout_marginLeft="5dp"
+            android:padding="5dp"
+            android:minHeight="75dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <!-- 商品标题-->
             <TextView
                 android:id="@+id/tv_title_cart"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:textColor="@color/gray"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:maxLines="3"
+                android:lines="3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="title" />
@@ -64,7 +65,7 @@
                 app:btnAddBackground="@drawable/bg_btn_style_white"
                 app:btnSubBackground="@drawable/bg_btn_style_white"
                 app:textViewBackground="@drawable/textview_border"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:id="@+id/add_sub_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

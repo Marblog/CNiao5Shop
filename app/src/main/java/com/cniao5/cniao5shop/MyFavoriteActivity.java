@@ -87,5 +87,6 @@ public class MyFavoriteActivity extends BaseActivity {
     @Override
     public void setToolbar() {
         getToolbar().setTitle("我的收藏");
+        getToolbar().setleftButtonIcon(R.drawable.icon_back_32px);
     }
 }

@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:custom="http://schemas.android.com/tools"
+              android:orientation="vertical">
 
     <!-- 热卖Fragment布局-->
-    <include
-        android:layout_width="match_parent"
+    <com.cniao5.cniao5shop.widget.CnToolbar
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        layout="@layout/activity_toolbar_search_view"/>
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetEnd="56dp"
+        app:isShowSearchView="true"/>
 
     <!--热卖刷新-->
     <com.cjj.MaterialRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"

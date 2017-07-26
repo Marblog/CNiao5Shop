@@ -105,22 +105,14 @@ public class CartAdapter extends SimpleAdapter<ShoppingCart> implements BaseAdap
         numberAddSubView.setOnButtonClickListener(new NumberAddSubView.OnButtonClickListener() {
             @Override
             public void onButtonAddClickListener(View view, int value) {
-                System.out.println(value);
                 item.setCount(value);
                 cartProvider.update(item);
-                System.out.println(value);
                 showTotalPrice();
             }
 
             @Override
             public void onButtonSubClickListener(View view, int value) {
-//                if (value == 1) {
-//                    item.setCount(value);
-//                } else {
-//                }
-                System.out.println(value);
                 item.setCount(value);
-                System.out.println(value);
                 cartProvider.update(item);
                 showTotalPrice();
             }

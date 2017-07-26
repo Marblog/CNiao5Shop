@@ -1,10 +1,6 @@
 package com.cniao5.cniao5shop;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -13,22 +9,17 @@ import android.widget.TextView;
 import com.cniao5.cniao5shop.utils.ManifestUtil;
 import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.cniao5.cniao5shop.widget.ClearEditText;
-import com.cniao5.cniao5shop.widget.CnToolbar;
-import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.jar.Manifest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
-import cn.smssdk.gui.RegisterPage;
 import cn.smssdk.utils.SMSLog;
 
 /**
@@ -82,12 +73,11 @@ public class RegisterActivity extends BaseActivity {
     public void setToolbar() {
         getToolbar().setTitle("用户注册(1/2)");
         getToolbar().setRightButtonText("下一步");
+        getToolbar().setleftButtonIcon(R.drawable.icon_back_32px);
         getToolbar().setRightButtonOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 getCode();
-
             }
         });
     }
@@ -233,7 +223,7 @@ public class RegisterActivity extends BaseActivity {
         String countryCode = mTvCountryCode.getText().toString().trim();
         String pwd = mEtPsw.getText().toString().trim();
 
-        if (mEtPsw.getTag().toString().length() < 6 || mEtPsw.getTag().toString().length() > 20) {
+        if (mEtPsw.getText().toString().length() < 6 || mEtPsw.getText().toString().length() > 20) {
             ToastUtils.show(this, "密码长度必须大于6位小于20位");
             return;
         }
@@ -242,7 +232,7 @@ public class RegisterActivity extends BaseActivity {
             countryCode = countryCode.substring(1);
         }
 
-        Intent intent = new Intent(this, Register2Activity.class);
+        Intent intent = new Intent(RegisterActivity.this, Register2Activity.class);
         intent.putExtra("phone", phone);
         intent.putExtra("pwd", pwd);
         intent.putExtra("countryCode", countryCode);

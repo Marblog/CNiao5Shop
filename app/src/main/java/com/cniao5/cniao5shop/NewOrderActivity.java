@@ -1,8 +1,8 @@
 package com.cniao5.cniao5shop;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.app.Activity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -28,7 +28,6 @@ import com.cniao5.cniao5shop.utils.CartProvider;
 import com.cniao5.cniao5shop.utils.JSONUtil;
 import com.cniao5.cniao5shop.widget.Constants;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.pingplusplus.android.PaymentActivity;
 import com.squareup.okhttp.Response;
 
@@ -115,7 +114,6 @@ public class NewOrderActivity extends BaseActivity implements View.OnClickListen
 
     private float amount;
 
-    private OkHttpHelper okHttpHelper = OkHttpHelper.getInstance();
     private String orderNum;
     private OkHttpHelper mHttpHelper = OkHttpHelper.getInstance();
     private int SIGN;
@@ -146,7 +144,8 @@ public class NewOrderActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void setToolbar() {
-        getToolbar().setTitle("填写订单");
+        getToolbar().setTitle("订单确认");
+        getToolbar().setleftButtonIcon(R.drawable.icon_back_32px);
     }
 
     private void initPayChannels() {
@@ -319,7 +318,6 @@ public class NewOrderActivity extends BaseActivity implements View.OnClickListen
      * 提交订单
      * @param view
      */
-    @OnClick(R.id.btn_createOrder)
     public void postNewOrder(View view) {
 
         List<WareItem> items = new ArrayList<>();
@@ -358,7 +356,7 @@ public class NewOrderActivity extends BaseActivity implements View.OnClickListen
 
         mBtnOrder.setEnabled(false);
 
-        okHttpHelper.doPost(Constants.API.ORDER_CREATE, params, new SpotsCallBack<CreateOrderRespMsg>(this) {
+        mHttpHelper.doPost(Constants.API.ORDER_CREATE, params, new SpotsCallBack<CreateOrderRespMsg>(this) {
             @Override
             public void onSuccess(Response response, CreateOrderRespMsg respMsg) {
 
@@ -415,7 +413,7 @@ public class NewOrderActivity extends BaseActivity implements View.OnClickListen
 
         mBtnOrder.setEnabled(false);
 
-        okHttpHelper.doPost(Constants.API.ORDER_CREATE, params, new SpotsCallBack<CreateOrderRespMsg>(this) {
+        mHttpHelper.doPost(Constants.API.ORDER_CREATE, params, new SpotsCallBack<CreateOrderRespMsg>(this) {
             @Override
             public void onSuccess(Response response, CreateOrderRespMsg respMsg) {
 
@@ -553,7 +551,7 @@ public class NewOrderActivity extends BaseActivity implements View.OnClickListen
         params.put("order_num", orderNum);
         params.put("status", status + "");
 
-        okHttpHelper.doPost(Constants.API.ORDER_COMPLEPE, params, new SpotsCallBack<BaseResMsg>(this) {
+        mHttpHelper.doPost(Constants.API.ORDER_COMPLEPE, params, new SpotsCallBack<BaseResMsg>(this) {
             @Override
             public void onSuccess(Response response, BaseResMsg resMsg) {
                 /**

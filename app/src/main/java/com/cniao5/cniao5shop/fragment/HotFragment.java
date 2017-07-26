@@ -1,22 +1,20 @@
 package com.cniao5.cniao5shop.fragment;
 
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import com.cniao5.cniao5shop.utils.Pager;
-import com.google.gson.reflect.TypeToken;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+
 import com.cjj.MaterialRefreshLayout;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.adapter.BaseAdapter;
-import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.adapter.HWAdapter;
+import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.Page;
 import com.cniao5.cniao5shop.bean.Wares;
+import com.cniao5.cniao5shop.utils.Pager;
 import com.cniao5.cniao5shop.widget.Constants;
+import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.List;
@@ -41,6 +39,11 @@ public class HotFragment extends BaseFragment implements Pager.onPageListener {
     }
 
     @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_hot;
+    }
+
+    @Override
     public void init() {
         Pager pager = Pager.newBuilder()
                 .setUrl(Constants.API.WARES_HOT)
@@ -56,19 +59,12 @@ public class HotFragment extends BaseFragment implements Pager.onPageListener {
 
 
     @Override
-    public View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_hot, container, false);
-    }
-
-    @Override
     public void load(List datas, int totalPage, int totalCount) {
         mAdapter = new HWAdapter(getContext(),datas);
         mAdapter.setOnItemClickListenner(new BaseAdapter.OnItemClickListenner() {
             @Override
             public void onItemClick(View view, int position) {
-
                 Wares wares = mAdapter.getItem(position);
-
                 mAdapter.showDetail(wares);
             }
         });

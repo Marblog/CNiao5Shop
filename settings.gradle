@@ -1,1 +1,1 @@
-include ':app', ':sharesdk', ':locallibrary', ':lib:bdwallet_pay_sdk', ':lib:pingpp', ':citypicker'
+include ':app', ':sharesdk', ':locallibrary', ':lib:bdwallet_pay_sdk', ':lib:pingpp'

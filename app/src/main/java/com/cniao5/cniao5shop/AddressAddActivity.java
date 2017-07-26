@@ -1,6 +1,5 @@
 package com.cniao5.cniao5shop;
 
-import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
@@ -8,63 +7,36 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.bigkoo.pickerview.OptionsPickerView;
-import com.cniao5.cniao5shop.city.CityModel;
-import com.cniao5.cniao5shop.city.DistrictModel;
-import com.cniao5.cniao5shop.city.ProvinceModel;
-import com.cniao5.cniao5shop.city.XmlParserHandler;
+import com.cniao5.cniao5shop.bean.JsonBean;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
 import com.cniao5.cniao5shop.msg.BaseResMsg;
+import com.cniao5.cniao5shop.utils.GetJsonDataUtil;
 import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
+import com.google.gson.Gson;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
-import com.lljjcoder.citypickerview.widget.CityPicker;
 import com.squareup.okhttp.Response;
 
-import java.io.InputStream;
-import java.nio.DoubleBuffer;
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 
 /**
  * 添加地址
  */
 public class AddressAddActivity extends BaseActivity {
-
-    private List<ProvinceModel> mProvinces;
-    private List<String> mProvincesStr = new ArrayList<>();
-    private ArrayList<ArrayList<String>> mCities = new ArrayList<ArrayList<String>>();
-    private ArrayList<ArrayList<ArrayList<String>>> mDistricts = new ArrayList<ArrayList<ArrayList<String>>>();
-
     private int TAG;
-
     private OkHttpHelper okHttpHelper = OkHttpHelper.getInstance();
-
-    //省市三级联动选择器
-    private OptionsPickerView mCityPikerView;
-
-//    private CityPicker cityPicker = new CityPicker.Builder(AddressAddActivity.this)
-//            .textSize(16)
-//            .title("城市选择")
-//            .titleBackgroundColor("#234Dfa")
-//            .confirTextColor("#000000")
-//            .cancelTextColor("#000000")
-//            .textColor(Color.parseColor("#000000"))
-//            .provinceCyclic(true)
-//            .cityCyclic(false)
-//            .districtCyclic(false)
-//            .visibleItemsCount(7)
-//            .itemPadding(10)
-//            .build();
+    private ArrayList<JsonBean> options1Items = new ArrayList<>();
+    private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
+    private ArrayList<ArrayList<ArrayList<String>>> options3Items = new ArrayList<>();
 
     @ViewInject(R.id.toolbar)
     private CnToolbar mToolBar;
@@ -238,60 +210,105 @@ public class AddressAddActivity extends BaseActivity {
         return true;
     }
 
-    /**
-     * 初始化省市数据
-     */
-    private void initProvinceDatas() {
-        AssetManager asset = getAssets();
+    private void ShowPickerView() {// 弹出选择器
 
-        try {
-            InputStream is = asset.open("province_data.xml");
-            //创建一个解析xml的工厂对象
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            //解析XMl
-            SAXParser parser = factory.newSAXParser();
-            XmlParserHandler handler = new XmlParserHandler();
-            parser.parse(is, handler);
-            is.close();
+        OptionsPickerView pvOptions = new OptionsPickerView.Builder(AddressAddActivity.this, new OptionsPickerView.OnOptionsSelectListener() {
+            @Override
+            public void onOptionsSelect(int options1, int options2, int options3, View v) {
+                //返回的分别是三个级别的选中位置
+                String address = options1Items.get(options1).getPickerViewText()+
+                        options2Items.get(options1).get(options2)+
+                        options3Items.get(options1).get(options2).get(options3);
 
-            //获取解析出来的数据
-            mProvinces = handler.getDataList();
-
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
-
-        //省份名称List //把省份名称放入provincesStrs
-        for (ProvinceModel p : mProvinces) {
-
-            mProvincesStr.add(p.getName());
-
-            //获取城市List数据
-            List<CityModel> cities = p.getCityList();
-
-            ArrayList<String> cityNames = new ArrayList<>(cities.size());
-
-            for (CityModel c : cities) {
-
-                cityNames.add(c.getName());
-
-                ArrayList<ArrayList<String>> dts = new ArrayList<>(); // 地区 List
-
-                //获取地区List数据
-                List<DistrictModel> districts = c.getDistrictList();
-
-                ArrayList<String> districtNames = new ArrayList<>(districts.size());
-
-                for (DistrictModel d : districts) {
-                    districtNames.add(d.getName());
-                    dts.add(districtNames);
-                    mDistricts.add(dts);
-                }
+                mTvAddress.setText(address);
             }
-            mCities.add(cityNames);
-        }
+        })
+
+                .setTitleText("城市选择")
+                .setDividerColor(Color.BLACK)
+                .setTextColorCenter(Color.BLACK) //设置选中项文字颜色
+                .setContentTextSize(20)
+                .setOutSideCancelable(false)// default is true
+                .build();
+
+        /*pvOptions.setPicker(options1Items);//一级选择器
+        pvOptions.setPicker(options1Items, options2Items);//二级选择器*/
+        pvOptions.setPicker(options1Items, options2Items,options3Items);//三级选择器
+        pvOptions.show();
     }
 
+    private void initJsonData() {//解析数据
+
+        /**
+         * 注意：assets 目录下的Json文件仅供参考，实际使用可自行替换文件
+         * 关键逻辑在于循环体
+         *
+         * */
+        String JsonData = new GetJsonDataUtil().getJson(this,"province.json");//获取assets目录下的json文件数据
+
+        ArrayList<JsonBean> jsonBean = parseData(JsonData);//用Gson 转成实体
+
+        /**
+         * 添加省份数据
+         *
+         * 注意：如果是添加的JavaBean实体，则实体类需要实现 IPickerViewData 接口，
+         * PickerView会通过getPickerViewText方法获取字符串显示出来。
+         */
+        options1Items = jsonBean;
+
+        for (int i=0;i<jsonBean.size();i++){//遍历省份
+            ArrayList<String> CityList = new ArrayList<>();//该省的城市列表（第二级）
+            ArrayList<ArrayList<String>> Province_AreaList = new ArrayList<>();//该省的所有地区列表（第三极）
+
+            for (int c=0; c<jsonBean.get(i).getCityList().size(); c++){//遍历该省份的所有城市
+                String CityName = jsonBean.get(i).getCityList().get(c).getName();
+                CityList.add(CityName);//添加城市
+
+                ArrayList<String> City_AreaList = new ArrayList<>();//该城市的所有地区列表
+
+                //如果无地区数据，建议添加空字符串，防止数据为null 导致三个选项长度不匹配造成崩溃
+                if (jsonBean.get(i).getCityList().get(c).getArea() == null
+                        ||jsonBean.get(i).getCityList().get(c).getArea().size()==0) {
+                    City_AreaList.add("");
+                }else {
+
+                    for (int d=0; d < jsonBean.get(i).getCityList().get(c).getArea().size(); d++) {//该城市对应地区所有数据
+                        String AreaName = jsonBean.get(i).getCityList().get(c).getArea().get(d);
+
+                        City_AreaList.add(AreaName);//添加该城市所有地区数据
+                    }
+                }
+                Province_AreaList.add(City_AreaList);//添加该省所有地区数据
+            }
+
+            /**
+             * 添加城市数据
+             */
+            options2Items.add(CityList);
+
+            /**
+             * 添加地区数据
+             */
+            options3Items.add(Province_AreaList);
+        }
+
+    }
+
+
+    public ArrayList<JsonBean> parseData(String result) {//Gson 解析
+        ArrayList<JsonBean> detail = new ArrayList<>();
+        try {
+            JSONArray data = new JSONArray(result);
+            Gson gson = new Gson();
+            for (int i = 0; i < data.length(); i++) {
+                JsonBean entity = gson.fromJson(data.optJSONObject(i).toString(), JsonBean.class);
+                detail.add(entity);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return detail;
+    }
 
     /**
      * 初始化地址数据
@@ -309,50 +326,16 @@ public class AddressAddActivity extends BaseActivity {
             showAddress();
         }
 
-
-//        cityPicker.setOnCityItemClickListener(new CityPicker.OnCityItemClickListener() {
-//            @Override
-//            public void onSelected(String... citySelected) {
-//                String address = citySelected[0] + " "
-//                        + citySelected[1] + " "
-//                        + citySelected[2];
-//                mTvAddress.setText(address);
-//
-//            }
-//        });
-
-
         /**
          * 初始化省市数据
          */
-        initProvinceDatas();
-
-        /**
-         * 显示省市数据
-         */
-        mCityPikerView = new OptionsPickerView(this);
-        mCityPikerView.setPicker((ArrayList) mProvincesStr, mCities, mDistricts, true);
-        mCityPikerView.setTitle("选择城市");
-        mCityPikerView.setCyclic(false, false, false);
-        mCityPikerView.setOnoptionsSelectListener(new OptionsPickerView.OnOptionsSelectListener() {
-            @Override
-            public void onOptionsSelect(int options1, int option2, int options3) {
-                String address = mProvinces.get(options1).getName() + " "
-                        + mCities.get(options1).get(option2) + " "
-                        + mDistricts.get(options1).get(option2).get(options3);
-
-                mTvAddress.setText(address);
-            }
-        });
-
-
+        initJsonData();
     }
 
     @OnClick(R.id.ll_city_picker)
     public void showCityPickerView(View v) {
         //确认省市数据
-        mCityPikerView.show();
-//        cityPicker.show();
+        ShowPickerView();
     }
 
 

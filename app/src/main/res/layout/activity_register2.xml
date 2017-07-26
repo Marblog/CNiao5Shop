@@ -48,6 +48,7 @@
                 android:layout_marginLeft="5dp"
                 android:text="@string/smssdk_resend_identify_code"
                 style="@style/smallGreenButton"
+                android:onClick="reSendCode"
                 android:enabled="true"
                 />
 

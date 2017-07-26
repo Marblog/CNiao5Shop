@@ -1,32 +1,25 @@
 package com.cniao5.cniao5shop.fragment;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.WaresListActivity;
-import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.adapter.HomeCampaignAdapter;
+import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.Banner;
 import com.cniao5.cniao5shop.bean.Campaign;
 import com.cniao5.cniao5shop.bean.HomeCampaign;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SimpleCallback;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
-import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.google.gson.Gson;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.squareup.okhttp.Response;
 
@@ -55,8 +48,11 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void setToolbar() {
 
-        System.out.println("toolbar---"+getToolbar().toString());
+    }
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_home;
     }
 
     @Override
@@ -65,11 +61,6 @@ public class HomeFragment extends BaseFragment {
         requestImages();
 
         initRecycleView();
-    }
-
-    @Override
-    public View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
 

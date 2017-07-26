@@ -7,11 +7,8 @@
     android:orientation="vertical"
     tools:context="com.cniao5.cniao5shop.MyFavoriteActivity">
 
-    <include
-        layout="@layout/activity_toolbar"/>
-
     <com.cniao5.cniao5shop.widget.CnToolbar
-        app:rightButtonText="你好"
+        app:RightButtonText="你好"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

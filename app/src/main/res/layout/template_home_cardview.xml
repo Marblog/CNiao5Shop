@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="#fff"
-    app:contentPadding="10dp"
+    app:contentPadding="5dp"
     app:cardCornerRadius="4dp">
 
     <!-- 首页商品cardView布局-->
@@ -21,14 +21,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="热门活动"
-            android:textSize="20dp"
+            android:textSize="16sp"
             android:textColor="@color/black"
-            android:paddingTop="10dp"/>
+            android:paddingTop="5dp"/>
 
         <View
             style="@style/line_horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -38,22 +38,23 @@
             <ImageView
                 android:layout_weight="1"
                 android:id="@+id/imgview_big"
-                android:src="@drawable/img_3_big"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
 
             <View
                 android:id="@+id/line"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 style="@style/line_vertical"/>
 
             <LinearLayout
-                android:layout_weight="3"
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:src="@drawable/img_0_small1"
                     android:id="@+id/imgview_small_top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -63,7 +64,6 @@
                     style="@style/line_horizontal"/>
 
                 <ImageView
-                    android:src="@drawable/img_0_small2"
                     android:id="@+id/imgview_small_bottom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -75,5 +75,3 @@
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
-
-

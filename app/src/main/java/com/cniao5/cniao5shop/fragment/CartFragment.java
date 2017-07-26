@@ -1,27 +1,25 @@
 package com.cniao5.cniao5shop.fragment;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
 import com.cniao5.cniao5shop.NewOrderActivity;
+import com.cniao5.cniao5shop.R;
+import com.cniao5.cniao5shop.adapter.CartAdapter;
 import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.ShoppingCart;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
+import com.cniao5.cniao5shop.utils.CartProvider;
 import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.TextView;
-import com.cniao5.cniao5shop.R;
-import com.cniao5.cniao5shop.adapter.CartAdapter;
-import com.cniao5.cniao5shop.utils.CartProvider;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.squareup.okhttp.Response;
@@ -73,17 +71,16 @@ public class CartFragment extends BaseFragment implements View.OnClickListener {
         mToolbar.getRightButton().setTag(ACTION_EDIT);
     }
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_cart;
+    }
+
 
     @Override
     public void init() {
         mCartProvider = CartProvider.getInstance(getContext());
         showData();
-    }
-
-
-    @Override
-    public View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_cart, container, false);
     }
 
 

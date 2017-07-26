@@ -7,16 +7,21 @@
     android:layout_height="match_parent">
 
     <!-- 主页Fragment布局-->
-    <include
-        android:layout_width="match_parent"
+    <com.cniao5.cniao5shop.widget.CnToolbar
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        layout="@layout/activity_toolbar_search_view"/>
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetEnd="56dp"
+        app:isShowSearchView="true"/>
+
 
     <!-- 轮播-->
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/slider"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="120dp"
         />
 
     <!--<com.daimajia.slider.library.Indicators.PagerIndicator

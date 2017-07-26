@@ -8,6 +8,14 @@ public class OrderItem implements Serializable{
     private Float amount;
     private Wares wares;
 
+    public Wares getWares() {
+        return wares;
+    }
+
+    public void setWares(Wares wares) {
+        this.wares = wares;
+    }
+
     public Long getId() {
         return id;
     }
@@ -15,6 +23,7 @@ public class OrderItem implements Serializable{
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public Float getAmount() {
         return amount;
@@ -24,11 +33,5 @@ public class OrderItem implements Serializable{
         this.amount = amount;
     }
 
-    public Wares getWares() {
-        return wares;
-    }
 
-    public void setWares(Wares wares) {
-        this.wares = wares;
-    }
 }

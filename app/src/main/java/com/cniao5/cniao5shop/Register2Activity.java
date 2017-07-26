@@ -1,8 +1,6 @@
 package com.cniao5.cniao5shop;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.app.Activity;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
@@ -18,16 +16,12 @@ import com.cniao5.cniao5shop.utils.DESUtil;
 import com.cniao5.cniao5shop.utils.ManifestUtil;
 import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.cniao5.cniao5shop.widget.ClearEditText;
-import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
-import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
-import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.squareup.okhttp.Response;
 
 import org.json.JSONObject;
 
-import java.lang.reflect.UndeclaredThrowableException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,16 +53,12 @@ public class Register2Activity extends BaseActivity {
     private OkHttpHelper okHttpHelper = OkHttpHelper.getInstance();
     private CountTimerView timerView;
 
-
-    @OnClick(R.id.btn_reSend)
     public void reSendCode(View view) {
 
         /**
          * 发送验证码请求
          */
         SMSSDK.getVerificationCode("+" + countryCode, phone);
-
-        System.out.println(phone + "~~~~~~~" + countryCode);
 
         /**
          * 再次发送验证码并进行计时
@@ -153,6 +143,7 @@ public class Register2Activity extends BaseActivity {
     @Override
     public void setToolbar() {
         getToolbar().setTitle("用户注册(2/2)");
+        getToolbar().setleftButtonIcon(R.drawable.icon_back_32px);
         getToolbar().setRightButtonText("完成");
         getToolbar().setRightButtonOnClickListener(new View.OnClickListener() {
             @Override

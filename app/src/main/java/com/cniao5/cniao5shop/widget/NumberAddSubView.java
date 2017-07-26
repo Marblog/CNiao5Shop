@@ -155,9 +155,6 @@ public class NumberAddSubView extends LinearLayout implements View.OnClickListen
 
     //加
     private void numAdd() {
-
-        int value = getValue();
-
         if (value < maxValue) {
             value += 1;
         }
@@ -168,8 +165,6 @@ public class NumberAddSubView extends LinearLayout implements View.OnClickListen
 
     //减
     private void numSub() {
-
-        int value = getValue();
 
         if (value > minValue) {
             value -= 1;

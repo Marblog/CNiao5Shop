@@ -2,8 +2,6 @@ package com.cniao5.cniao5shop;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.app.Activity;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -18,9 +16,7 @@ import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
 import com.cniao5.cniao5shop.utils.CartProvider;
 import com.cniao5.cniao5shop.utils.ToastUtils;
-import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
-import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.util.LogUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.squareup.okhttp.Response;
@@ -112,7 +108,7 @@ public class WaresDetailsActivity extends BaseActivity {
     @Override
     public void setToolbar() {
         getToolbar().setTitle(R.string.wares_details);
-
+        getToolbar().setleftButtonIcon(R.drawable.icon_back_32px);
         getToolbar().setRightButtonText(getString(R.string.share));
         getToolbar().setRightButtonOnClickListener(new View.OnClickListener() {
             @Override

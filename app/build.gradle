@@ -45,11 +45,10 @@ dependencies {
     compile 'com.android.support:design:25.2.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.w4lle.library:NineLayout:1.0.0'
-    compile 'com.bigkoo:pickerview:2.1.1'
+    compile 'com.contrarywind:Android-PickerView:3.2.5'
     compile name: 'SMSSDK-2.1.2', ext: 'aar'
     compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
     compile project(':sharesdk')
     compile project(':lib:pingpp')
     compile project(':lib:bdwallet_pay_sdk')
-    compile project(':citypicker')
 }

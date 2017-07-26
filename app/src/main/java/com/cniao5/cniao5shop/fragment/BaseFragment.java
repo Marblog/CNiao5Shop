@@ -14,13 +14,13 @@ import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 public abstract class BaseFragment extends Fragment {
 
+    private View mRootView;
+
     private void initToolbar() {
         if (getToolbar() != null) {
-
             setToolbar();
         }
     }
@@ -28,26 +28,32 @@ public abstract class BaseFragment extends Fragment {
     public abstract void setToolbar();
 
     public CnToolbar getToolbar() {
-        return (CnToolbar) getActivity().findViewById(R.id.toolbar_search_view);
+        return (CnToolbar) mRootView.findViewById(R.id.toolbar_search_view);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = createView(inflater, container, savedInstanceState);
-        ViewUtils.inject(this, view);
+        if (getLayoutId() != 0){
+            mRootView = inflater.inflate(getLayoutId(),container,false);
+        }
+        ViewUtils.inject(this, mRootView);
 
         initToolbar();
 
         init();
 
-        return view;
+        return mRootView;
     }
 
-    public abstract void init();
+    /**
+     * 获取布局
+     * @return
+     */
+    protected abstract int getLayoutId();
 
-    public abstract View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
+    public abstract void init();
 
     public void startActivity(Intent intent, boolean isNeedLogin) {
 

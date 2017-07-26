@@ -7,16 +7,16 @@ public class Order implements Serializable {
 
     public static final int STATUS_SUCCESS=1; //支付成功的订单
     public static final int STATUS_PAY_FAIL=-2; //支付失败的订单
-    public static final int STATUS_PAY_WAIT=0; //待支付的订单
+    public static final int STATUS_PAY_WAIT=0; //：待支付的订单
 
     private Long id;
     private String orderNum;
     private Long createdTime;
-    private int amount;
-    private int status;
-
+    private Float amount;
+    private int  status;
     private List<OrderItem> items;
     private Address address;
+
 
     public Long getId() {
         return id;
@@ -42,11 +42,11 @@ public class Order implements Serializable {
         this.createdTime = createdTime;
     }
 
-    public int getAmount() {
+    public Float getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Float amount) {
         this.amount = amount;
     }
 

@@ -1,34 +1,21 @@
 package com.cniao5.cniao5shop;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
-import android.os.Bundle;
-import android.app.Activity;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.cniao5.cniao5shop.adapter.BaseAdapter;
 import com.cniao5.cniao5shop.adapter.MyOrderAdapter;
 import com.cniao5.cniao5shop.adapter.decoration.CardViewtemDecortion;
 import com.cniao5.cniao5shop.bean.Order;
-import com.cniao5.cniao5shop.bean.OrderItem;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
-import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
-import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.squareup.okhttp.Response;
-import com.squareup.picasso.Picasso;
-import com.w4lle.library.NineGridAdapter;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -38,7 +25,7 @@ import java.util.Map;
 /**
  * 我的订单
  */
-public class MyOrderActivity extends BaseActivity implements TabLayout.OnTabSelectedListener {
+public class MyOrderActivity extends BaseActivity implements TabLayout.OnTabSelectedListener{
 
     public static final int STATUS_ALL = 1000;
     public static final int STATUS_SUCCESS = 1; //支付成功的订单
@@ -72,11 +59,13 @@ public class MyOrderActivity extends BaseActivity implements TabLayout.OnTabSele
          * 获取订单数据
          */
         getOrders();
+
     }
 
     @Override
     public void setToolbar() {
         getToolbar().setTitle("我的订单");
+        getToolbar().setleftButtonIcon(R.drawable.icon_back_32px);
     }
 
     //初始化tab
@@ -195,5 +184,4 @@ public class MyOrderActivity extends BaseActivity implements TabLayout.OnTabSele
     public void onTabReselected(TabLayout.Tab tab) {
 
     }
-
 }

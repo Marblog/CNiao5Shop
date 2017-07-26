@@ -18,7 +18,6 @@ public class CategoryAdapter extends SimpleAdapter<Category> {
 
     @Override
     public void bindData(BaseViewHolder holder, Category category) {
-
         holder.getTextView(R.id.tv_category).setText(category.getName());
     }
 }

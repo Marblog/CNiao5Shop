@@ -1,8 +1,6 @@
 package com.cniao5.cniao5shop;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -11,22 +9,17 @@ import android.widget.TextView;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SimpleCallback;
-import com.cniao5.cniao5shop.http.SpotsCallBack;
 import com.cniao5.cniao5shop.msg.LoginRespMsg;
 import com.cniao5.cniao5shop.utils.DESUtil;
 import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.cniao5.cniao5shop.widget.ClearEditText;
-import com.cniao5.cniao5shop.widget.CnToolbar;
 import com.cniao5.cniao5shop.widget.Constants;
-import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.squareup.okhttp.Response;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.xml.transform.Source;
 
 public class LoginActivity extends BaseActivity {
 
