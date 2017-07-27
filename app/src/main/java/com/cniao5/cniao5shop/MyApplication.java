@@ -29,6 +29,8 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+//        MultiDex.install(this);
+
         mInstance = this;
         //初始化用户信息
         initUser();

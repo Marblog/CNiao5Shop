@@ -86,7 +86,7 @@ public class WaresListActivity extends BaseActivity implements Pager.onPageListe
                 .putParams("campaignId", campaignId)
                 .putParams("orderBy", orderBy)
                 .setLoadMore(true)
-                .setPageSize(20)
+                .setPageSize(10)
                 .setRefreshLayout(mRefreshLayout)
                 .setPageListener(this)
                 .builder(this, new TypeToken<Page<Wares>>() {

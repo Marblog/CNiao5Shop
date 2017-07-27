@@ -1,7 +1,10 @@
 package com.cniao5.cniao5shop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -129,4 +132,21 @@ public class MainActivity extends AppCompatActivity {
         return view;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == 2) {
+            this.gotoMineFragment();
+        }
+    }
+
+    private FragmentManager fmanager;
+    private FragmentTransaction ftransaction;
+    private void gotoMineFragment() {
+        fmanager = getSupportFragmentManager();
+        ftransaction = fmanager.beginTransaction();
+        MineFragment  mineFragment = new MineFragment();
+        ftransaction.replace(R.id.realtabcontent, mineFragment);
+        ftransaction.commit();
+    }
 }

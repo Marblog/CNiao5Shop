@@ -63,6 +63,7 @@ public class CategoryFragment extends BaseFragment {
     private long category_id = 0;//左部导航id
     private int curPage = 1;
     private int totalPage = 1;
+    private int totalCount = 28;
     private int pageSize = 10;
 
     private final int STATE_NORMAL = 0;
@@ -102,7 +103,7 @@ public class CategoryFragment extends BaseFragment {
 
             @Override
             public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
-                if (curPage < totalPage)
+                if (curPage * pageSize < totalCount)
                     loadMoreData();
                 else {
                     Toast.makeText(getContext(), "没有数据了...", Toast.LENGTH_SHORT).show();
@@ -141,6 +142,8 @@ public class CategoryFragment extends BaseFragment {
                 curPage = waresPage.getCurrentPage();
 
                 totalPage = waresPage.getTotalPage();
+
+                totalCount = waresPage.getTotalCount();
 
                 showCategoryWaresData();
             }
@@ -199,7 +202,6 @@ public class CategoryFragment extends BaseFragment {
      * 请求左部导航菜单数据
      */
     private void requestCategoryData() {
-
         mOkHttpHelper.doGet(Constants.API.CATEGORY_LIST, new SpotsCallBack<List<Category>>(getContext()) {
 
             @Override

@@ -12,6 +12,7 @@ import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.Order;
 import com.cniao5.cniao5shop.bean.OrderItem;
 import com.cniao5.cniao5shop.utils.ScreenUtil;
+import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.squareup.picasso.Picasso;
 import com.w4lle.library.NineGridAdapter;
 import com.w4lle.library.NineGridlayout;
@@ -38,11 +39,19 @@ public class MyOrderAdapter extends SimpleAdapter<Order>{
         TextView mTvStatus = holder.getTextView(R.id.tv_status);
 
         Button mBtnBuyMore = holder.getButton(R.id.btn_buy_more);
+        Button mBtnComment = holder.getButton(R.id.btn_comment);
 
         mBtnBuyMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onItemWaresClickListener.onItemWaresClickListener(v,order);
+            }
+        });
+
+        mBtnComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.show(mContext,"功能正在完善...");
             }
         });
 

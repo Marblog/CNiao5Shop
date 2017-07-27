@@ -1,21 +1,13 @@
 package com.cniao5.cniao5shop.utils;
 
 import android.content.Context;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.view.View;
 import android.widget.Toast;
 
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
-import com.cniao5.cniao5shop.adapter.BaseAdapter;
-import com.cniao5.cniao5shop.adapter.HWAdapter;
-import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.Page;
-import com.cniao5.cniao5shop.bean.Wares;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
-import com.cniao5.cniao5shop.widget.Constants;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
@@ -80,7 +72,7 @@ public class Pager {
             @Override
             public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
 
-                if (builder.curPage < builder.totalPage) {
+                if (builder.curPage * builder.pageSize < builder.totalCount) {
                     loadMoreData();
                 } else {
                     ToastUtils.show(builder.context, "没有更多数据...");
@@ -145,6 +137,8 @@ public class Pager {
             builder.pageSize = page.getPageSize();
 
             builder.totalPage = page.getTotalPage();
+
+            builder.totalCount = page.getTotalCount();
 
             showData(page.getList(), page.getTotalPage(), page.getTotalCount());
         }
@@ -273,6 +267,7 @@ public class Pager {
         private int curPage = 1;
         private int totalPage = 1;
         private int pageSize = 10;
+        private int totalCount = 28;
 
         private String url;
 

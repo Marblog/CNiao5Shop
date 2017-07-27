@@ -70,7 +70,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 style="@style/editText_base"
-                android:text="18581391726"
+                android:text=""
                 android:hint="请输入常用手机号码"
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 style="@style/editText_base"
                 android:hint="请输入密码"
-                android:text="123456"
+                android:text=""
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:inputType="textPassword"/>

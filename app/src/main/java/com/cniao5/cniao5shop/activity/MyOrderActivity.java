@@ -15,6 +15,7 @@ import com.cniao5.cniao5shop.adapter.decoration.CardViewtemDecortion;
 import com.cniao5.cniao5shop.bean.Order;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
+import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.cniao5.cniao5shop.widget.Constants;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.squareup.okhttp.Response;
@@ -150,7 +151,8 @@ public class MyOrderActivity extends BaseActivity implements TabLayout.OnTabSele
             mAdapter.setOnItemClickListenner(new BaseAdapter.OnItemClickListenner() {
                 @Override
                 public void onItemClick(View view, int position) {
-                    toDetailActivity(position);
+                    ToastUtils.show(MyOrderActivity.this, "功能正在完善...");
+//                    toDetailActivity(position);
                 }
             });
         } else {

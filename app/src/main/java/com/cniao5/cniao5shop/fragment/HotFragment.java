@@ -49,7 +49,7 @@ public class HotFragment extends BaseFragment implements Pager.onPageListener {
                 .setUrl(Constants.API.WARES_HOT)
                 .setLoadMore(true)
                 .setPageListener(this)
-                .setPageSize(20)
+                .setPageSize(10)
                 .setRefreshLayout(mRefreshLayout)
                 .builder(getContext(), new TypeToken<Page<Wares>>() {
                 }.getType());

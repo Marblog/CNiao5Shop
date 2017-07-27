@@ -238,8 +238,8 @@ public class RegisterActivity extends BaseActivity {
         intent.putExtra("pwd", pwd);
         intent.putExtra("countryCode", countryCode);
 
-        startActivity(intent);
-
+        startActivityForResult(intent,1);
+        setResult(2);
     }
 
     @Override

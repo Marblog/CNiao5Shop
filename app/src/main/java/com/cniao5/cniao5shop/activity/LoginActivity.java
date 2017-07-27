@@ -125,6 +125,7 @@ public class LoginActivity extends BaseActivity {
      */
     @OnClick(R.id.tv_register)
     public void register(View v) {
-        startActivity(new Intent(this, RegisterActivity.class));
+        startActivityForResult(new Intent(this, RegisterActivity.class),1);
+//        startActivity(new Intent(this, RegisterActivity.class));
     }
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.cniao5.cniao5shop.MainActivity;
 import com.cniao5.cniao5shop.MyApplication;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.User;
@@ -251,7 +252,7 @@ public class Register2Activity extends BaseActivity {
                 ToastUtils.show(Register2Activity.this, "注册成功");
 
                 //跳转到登录页面
-                startActivity(new Intent(Register2Activity.this, LoginActivity.class));
+                startActivity(new Intent(Register2Activity.this, MainActivity.class));
 
                 System.out.println("status:" + userLoginRespMsg.getStatus() + ",data:" + userLoginRespMsg.getData() + ",token:" + userLoginRespMsg.getToken());
 
@@ -269,6 +270,15 @@ public class Register2Activity extends BaseActivity {
                 System.out.println(code);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == 2) {
+            setResult(2);
+            finish();
+        }
     }
 
     @Override

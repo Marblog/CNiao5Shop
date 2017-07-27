@@ -16,12 +16,12 @@
         "source": "/Users/admin/AndroidStudioProjects/CNiao5Shop/lib/bdwallet_pay_sdk/build/intermediates/bundles/debug/res/drawable-hdpi-v4/wallet_base_pwdpay_logo_disable.png"
     },
     {
-        "merged": "/Users/admin/AndroidStudioProjects/CNiao5Shop/lib/bdwallet_pay_sdk/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/wallet_base_bottom_1.9.png",
-        "source": "/Users/admin/AndroidStudioProjects/CNiao5Shop/lib/bdwallet_pay_sdk/build/intermediates/bundles/debug/res/drawable-hdpi-v4/wallet_base_bottom_1.9.png"
-    },
-    {
         "merged": "/Users/admin/AndroidStudioProjects/CNiao5Shop/lib/bdwallet_pay_sdk/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/ebpay_help_date.png",
         "source": "/Users/admin/AndroidStudioProjects/CNiao5Shop/lib/bdwallet_pay_sdk/build/intermediates/bundles/debug/res/drawable-hdpi-v4/ebpay_help_date.png"
+    },
+    {
+        "merged": "/Users/admin/AndroidStudioProjects/CNiao5Shop/lib/bdwallet_pay_sdk/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/wallet_base_bottom_1.9.png",
+        "source": "/Users/admin/AndroidStudioProjects/CNiao5Shop/lib/bdwallet_pay_sdk/build/intermediates/bundles/debug/res/drawable-hdpi-v4/wallet_base_bottom_1.9.png"
     },
     {
         "merged": "/Users/admin/AndroidStudioProjects/CNiao5Shop/lib/bdwallet_pay_sdk/build/intermediates/res/merged/androidTest/debug/drawable-hdpi-v4/wallet_base_password_bg.png",
