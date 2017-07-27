@@ -35,5 +35,3 @@
 
 ![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo6.png)
 
-![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo11.png)
-
