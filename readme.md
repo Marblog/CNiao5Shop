@@ -3,6 +3,16 @@
 
 课程中使用了Android5.0的最新技术：Toolbar、RecyclerView、CardView、Tablayout、SwipeRefeshLayout和大部分目前主流的技术：Xutils、OKhttp、Fresco、Picasso、gson、H5与原生结合开发、高层封装、组件封装、自定义控件、朋友圈九宫格等。
 
+![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo6.gif)
+
+![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo2.gif)
+
+![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo3.gif)
+
+![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo4.gif)
+
+![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo5.gif)
+
 ![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo12.png)
 
 ![](https://raw.githubusercontent.com/angelOnly/CNiao5Shop/master/demo11.png)
