@@ -255,8 +255,6 @@ public class Register2Activity extends BaseActivity {
                 startActivity(new Intent(Register2Activity.this, MainActivity.class));
 
                 System.out.println("status:" + userLoginRespMsg.getStatus() + ",data:" + userLoginRespMsg.getData() + ",token:" + userLoginRespMsg.getToken());
-
-                finish();
             }
 
             @Override

@@ -11,21 +11,19 @@ import android.webkit.WebViewClient;
 
 import com.cniao5.cniao5shop.MyApplication;
 import com.cniao5.cniao5shop.R;
-import com.cniao5.cniao5shop.bean.Favorite;
 import com.cniao5.cniao5shop.bean.User;
 import com.cniao5.cniao5shop.bean.Wares;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
+import com.cniao5.cniao5shop.msg.BaseResMsg;
 import com.cniao5.cniao5shop.utils.CartProvider;
 import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.cniao5.cniao5shop.widget.Constants;
-import com.lidroid.xutils.util.LogUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.squareup.okhttp.Response;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import dmax.dialog.SpotsDialog;
@@ -226,8 +224,8 @@ public class WaresDetailsActivity extends BaseActivity {
          */
         @JavascriptInterface
         public void addToCart(long id) {
-//            addToFavorite();
-            ToastUtils.show(context, "功能正在完善...");
+            addToFavorite();
+//            ToastUtils.show(context, "功能正在完善...");
         }
     }
 
@@ -247,17 +245,16 @@ public class WaresDetailsActivity extends BaseActivity {
             params.put("user_id", userId + "");
             params.put("ware_id", mWares.getId() + "");
 
-            okHttpHelper.doPost(Constants.API.FAVORITE_CREATE, params, new SpotsCallBack<List<Favorite>>(this) {
-                @Override
-                public void onSuccess(Response response, List<Favorite> favorites) {
+            okHttpHelper.doPost(Constants.API.FAVORITE_CREATE, params, new SpotsCallBack<BaseResMsg>(this) {
 
-                    System.out.println("name-----" + mWares.getName());
+                @Override
+                public void onSuccess(Response response, BaseResMsg baseResMsg) {
                     ToastUtils.show(WaresDetailsActivity.this, getString(R.string.has_add_favorite));
                 }
 
                 @Override
                 public void onError(Response response, int code, Exception e) {
-                    LogUtils.d("code:" + code);
+                    response.code();
                 }
             });
         }

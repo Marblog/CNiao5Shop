@@ -74,11 +74,11 @@
             android:value="${UMENG_CHANNEL_VALUE}"/>
 
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.WaresListActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.WaresDetailsActivity"
             android:label="@string/title_activity_wares_details"
             android:screenOrientation="portrait"/>
@@ -86,7 +86,7 @@
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
@@ -106,24 +106,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"/>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.NewOrderActivity"
             android:label="@string/title_activity_new_order"
             android:screenOrientation="portrait"/>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.RegisterActivity"
             android:label="@string/title_activity_register"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".activity.Register2Activity"
             android:label="@string/title_activity_register2"
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
 
         <meta-data
@@ -261,7 +261,7 @@
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:excludeFromRecents="true"
             android:exported="@bool/bd_wallet_switch_global_debug"
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/EbpayThemeActivit"
             android:windowSoftInputMode="stateHidden"/>
@@ -270,7 +270,7 @@
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:excludeFromRecents="true"
             android:exported="@bool/bd_wallet_switch_global_debug"
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/EbpayThemeActivit"
             android:windowSoftInputMode="stateVisible|adjustPan"/>
@@ -279,7 +279,7 @@
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:excludeFromRecents="true"
             android:exported="@bool/bd_wallet_switch_global_debug"
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/EbpayThemeActivit"
             android:windowSoftInputMode="stateVisible|adjustPan"/>
@@ -317,27 +317,27 @@
             android:theme="@style/EbpayThemeActivit"
             android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.MyOrderActivity"
             android:label="@string/title_activity_create_order"
             android:screenOrientation="portrait"/>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.PayResultActivity"
             android:label="@string/title_activity_pay_result"
             android:screenOrientation="portrait"/>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.AddressListActivity"
             android:label="@string/title_activity_address_list"
             android:screenOrientation="portrait"/>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.AddressAddActivity"
             android:label="@string/title_activity_address_add"
             android:screenOrientation="portrait"/>
         <activity
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:name=".activity.MyFavoriteActivity"
             android:label="@string/title_activity_my_favorite"
             android:screenOrientation="portrait"/>

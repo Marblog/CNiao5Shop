@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Favorite implements Serializable{
 
     private Long id;
-    private Long createTime;
+    private String createTime;
     private Wares wares;
 
     public Long getId() {
@@ -19,11 +19,11 @@ public class Favorite implements Serializable{
         this.id = id;
     }
 
-    public Long getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Long createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

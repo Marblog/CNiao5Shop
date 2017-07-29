@@ -16,14 +16,13 @@ import java.util.List;
  */
 public class AddressAdapter extends SimpleAdapter<Address> {
 
-    private AddressLisneter addressLisneter;
+    private AddressLisneter mAddressLisneter;
     private TextView mTvEdit;
     private TextView mTvDelete;
 
-    public AddressAdapter(Context context, List<Address> datas, AddressLisneter addressLisneter) {
+    public AddressAdapter(Context context, List<Address> datas,AddressLisneter addressLisneter) {
         super(context, datas, R.layout.template_address);
-
-        this.addressLisneter = addressLisneter;
+        this.mAddressLisneter = addressLisneter;
     }
 
     public TextView getmTvEdit() {
@@ -69,10 +68,9 @@ public class AddressAdapter extends SimpleAdapter<Address> {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                    if (isChecked && addressLisneter != null) {
-
+                    if (isChecked && mAddressLisneter != null) {
                         address.setIsDefault(true);
-                        addressLisneter.setDefault(address);
+                        mAddressLisneter.setDefault(address);
                     }
                 }
             });
@@ -81,16 +79,17 @@ public class AddressAdapter extends SimpleAdapter<Address> {
         tvEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (addressLisneter != null)
-                    addressLisneter.onClickEdit(address);
+
+                if (mAddressLisneter != null)
+                    mAddressLisneter.onClickEdit(address);
             }
         });
 
         tvDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (addressLisneter != null)
-                    addressLisneter.onClickDelete(address);
+                if (mAddressLisneter != null)
+                    mAddressLisneter.onClickDelete(address);
             }
         });
     }

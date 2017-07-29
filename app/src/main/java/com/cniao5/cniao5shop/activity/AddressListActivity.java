@@ -65,12 +65,10 @@ public class AddressListActivity extends BaseActivity {
 
     /**
      * 显示删除提示对话框
+     *
      * @param address
      */
     private void showDialog(final Address address) {
-        if (mDialog != null)
-            return;
-
         CustomDialog.Builder builder = new CustomDialog.Builder(this);
         builder.setMessage("您确定删除该地址吗？");
         builder.setTitle("友情提示");
@@ -99,6 +97,7 @@ public class AddressListActivity extends BaseActivity {
 
     /**
      * 删除地址
+     *
      * @param address
      */
     private void deleteAddress(Address address) {
@@ -112,7 +111,8 @@ public class AddressListActivity extends BaseActivity {
                 if (resMsg.getStatus() == resMsg.STATUS_SUCCESS) {
                     setResult(RESULT_OK);
                     System.out.println("----------------" + resMsg.getStatus());
-                    mDialog.dismiss();
+                    if (mDialog.isShowing())
+                        mDialog.dismiss();
                 }
             }
 
@@ -136,6 +136,7 @@ public class AddressListActivity extends BaseActivity {
 
     /**
      * 跳转AddressAddActivity页面结果处理
+     *
      * @param requestCode
      * @param resultCode
      * @param data
@@ -151,7 +152,7 @@ public class AddressListActivity extends BaseActivity {
     private void initAddress() {
         String userId = MyApplication.getInstance().getUser().getId() + "";
 
-        if (!TextUtils.isEmpty(userId)){
+        if (!TextUtils.isEmpty(userId)) {
             Map<String, String> params = new HashMap<>(1);
 
             params.put("user_id", userId);
@@ -173,6 +174,7 @@ public class AddressListActivity extends BaseActivity {
 
     /**
      * 显示地址列表
+     *
      * @param addresses
      */
     private void showAddress(final List<Address> addresses) {
@@ -212,6 +214,7 @@ public class AddressListActivity extends BaseActivity {
     /**
      * 编辑地址
      * 传入TAG_COMPLETE更改AddressAddActivitytoolbar显示
+     *
      * @param address
      */
     private void editAddress(Address address) {
@@ -229,6 +232,7 @@ public class AddressListActivity extends BaseActivity {
 
     /**
      * 更新地址
+     *
      * @param address
      */
     public void updateAddress(Address address) {

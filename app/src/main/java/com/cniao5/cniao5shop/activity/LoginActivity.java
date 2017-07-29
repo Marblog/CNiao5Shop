@@ -41,7 +41,6 @@ public class LoginActivity extends BaseActivity {
     private TextView mTvForget;
 
     private OkHttpHelper okHttpHelper = OkHttpHelper.getInstance();
-    private int RESULT_CODE = 0;
 
 
     @Override
@@ -99,7 +98,7 @@ public class LoginActivity extends BaseActivity {
                  */
                 if (application.getIntent() == null && userLoginRespMsg.getData() != null && userLoginRespMsg.getToken() != null) {
 
-                    setResult(RESULT_CODE);
+                    setResult(Constants.REQUEST_CODE);
 
                     ToastUtils.show(mContext, "登录成功");
 

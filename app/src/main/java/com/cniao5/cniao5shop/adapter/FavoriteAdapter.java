@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.bean.Favorite;
 import com.cniao5.cniao5shop.bean.Wares;
+import com.cniao5.cniao5shop.utils.ToastUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
@@ -17,12 +18,15 @@ import java.util.List;
  */
 public class FavoriteAdapter extends SimpleAdapter<Favorite> {
 
-    public FavoriteAdapter(Context context, List<Favorite> datas) {
+    private FavoriteLisneter mFavoriteLisneter;
+
+    public FavoriteAdapter(Context context, List<Favorite> datas,FavoriteLisneter favoriteLisneter) {
         super(context, datas, R.layout.template_favorite_item);
+        this.mFavoriteLisneter = favoriteLisneter;
     }
 
     @Override
-    public void bindData(BaseViewHolder holder, Favorite favorite) {
+    public void bindData(BaseViewHolder holder, final Favorite favorite) {
         Wares wares = favorite.getWares();
         holder.getTextView(R.id.tv_title).setText(wares.getName());
         holder.getTextView(R.id.tv_price).setText("￥ " + wares.getPrice());
@@ -36,18 +40,24 @@ public class FavoriteAdapter extends SimpleAdapter<Favorite> {
         buttonRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                if (mFavoriteLisneter != null)
+                    mFavoriteLisneter.onClickDelete(favorite);
             }
         });
 
         buttonLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ToastUtils.show(mContext, "功能正在完善...");
             }
         });
 
+
+    }
+
+    public interface FavoriteLisneter {
+
+        void onClickDelete(Favorite favorite);
 
     }
 }

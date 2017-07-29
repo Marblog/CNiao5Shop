@@ -47,7 +47,7 @@ public class Constants {
         public static final String ADDR_UPDATE = BASE_URL + "addr/update";
         public static final String ADDR_DEL = BASE_URL + "addr/del";
         public static final String FAVORITE_CREATE = BASE_URL + "favorite/create";
-        public static final String FAVORITE_LIST = BASE_URL + "favorite_list";
+        public static final String FAVORITE_LIST = BASE_URL + "favorite/list";
         public static final String FAVORITE_DEL = BASE_URL + "favorite/del";
 
     }

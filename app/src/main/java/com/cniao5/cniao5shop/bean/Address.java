@@ -17,7 +17,7 @@ public class Address implements Serializable, Comparable<Address> {
     private String consignee;
     private String phone;
     private String addr;
-    private String zipCode;
+    private String zip_code;
     private Boolean isDefault;
 
     public Address() {
@@ -27,7 +27,7 @@ public class Address implements Serializable, Comparable<Address> {
         this.consignee = consignee;
         this.phone = phone;
         this.addr = addr;
-        this.zipCode = zipCode;
+        this.zip_code = zipCode;
     }
 
 
@@ -65,11 +65,11 @@ public class Address implements Serializable, Comparable<Address> {
     }
 
     public String getZipCode() {
-        return zipCode;
+        return zip_code;
     }
 
     public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+        this.zip_code = zipCode;
     }
 
 
