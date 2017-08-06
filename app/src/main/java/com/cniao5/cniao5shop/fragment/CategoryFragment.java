@@ -13,7 +13,6 @@ import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.adapter.BaseAdapter;
 import com.cniao5.cniao5shop.adapter.CategoryAdapter;
 import com.cniao5.cniao5shop.adapter.CategoryWaresAdapter;
-import com.cniao5.cniao5shop.adapter.decoration.DividerGridItemDecoration;
 import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.Banner;
 import com.cniao5.cniao5shop.bean.Category;
@@ -177,7 +176,7 @@ public class CategoryFragment extends BaseFragment {
                     mRecyclerViewWares.setAdapter(mWaresAdapter);
                     mRecyclerViewWares.setLayoutManager(new GridLayoutManager(getContext(), 2));
                     mRecyclerViewWares.setItemAnimator(new DefaultItemAnimator());
-                    mRecyclerViewWares.addItemDecoration(new DividerGridItemDecoration(getContext()));
+//                    mRecyclerViewWares.addItemDecoration(new DividerGridItemDecoration(getContext()));
                 } else {
                     mWaresAdapter.clearData();
                     mWaresAdapter.addData(mDatas);

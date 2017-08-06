@@ -20,6 +20,9 @@ public class Constants {
     public static final int TAG_SAVE = 1;
     public static final int TAG_COMPLETE = 2;
 
+    public static final int ADDRESS_ADD = 100;
+    public static final int ADDRESS_EDIT = 200;
+
     public static final int CART = 1;
     public static final int ORDER = 2;
 

@@ -1,5 +1,6 @@
 package com.cniao5.cniao5shop.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.cniao5.cniao5shop.MyApplication;
 import com.cniao5.cniao5shop.R;
+import com.cniao5.cniao5shop.bean.Address;
 import com.cniao5.cniao5shop.bean.JsonBean;
 import com.cniao5.cniao5shop.http.OkHttpHelper;
 import com.cniao5.cniao5shop.http.SpotsCallBack;
@@ -62,7 +64,9 @@ public class AddressAddActivity extends BaseActivity {
 
     @Override
     public void init() {
-        initAddress();
+        TAG = getIntent().getIntExtra("tag", -1);
+        final Address address = (Address) getIntent().getExtras().getSerializable("addressBean");
+        initAddress(address);
     }
 
     @Override
@@ -79,8 +83,9 @@ public class AddressAddActivity extends BaseActivity {
                     //添加新地址
                     creatAddress();
                 } else if (TAG == Constants.TAG_COMPLETE) {
+                    Address address = (Address) getIntent().getExtras().getSerializable("addressBean");
                     //编辑地址
-                    updateAddress();
+                    updateAddress(address);
                 }
             }
         });
@@ -89,40 +94,32 @@ public class AddressAddActivity extends BaseActivity {
     /**
      * 显示添加地址页面
      */
-    private void showAddress() {
-        String consignee = getIntent().getStringExtra("consignee");
-        String phone = getIntent().getStringExtra("phone");
-        String addr = getIntent().getStringExtra("addr");
-
-        String address[] = addr.split("-");
-
-        mEtConsignee.setText(consignee);
-        mEtPhone.setText(phone);
-        mTvAddress.setText(address[0] == null ? "" : address[0]);
-        mEtAddDes.setText(address[1] == null ? "" : address[1]);
+    private void showAddress(Address address) {
+        String addrArr[] = address.getAddr().split("-");
+        mEtConsignee.setText(address.getConsignee());
+        mEtPhone.setText(address.getPhone());
+        mTvAddress.setText(addrArr[0] == null ? "" : addrArr[0]);
+        mEtAddDes.setText(addrArr[1] == null ? "" : addrArr[1]);
 
     }
 
     /**
      * 编辑地址
      */
-    public void updateAddress() {
+    public void updateAddress(Address address) {
+        check();
 
         String consignee = mEtConsignee.getText().toString();
         String phone = mEtPhone.getText().toString();
         String addr = mTvAddress.getText().toString() + "-" + mEtAddDes.getText().toString();
 
-        String userId = getIntent().getStringExtra("id");
-        String zip_code = getIntent().getStringExtra("zip_code");
-        String is_default = getIntent().getStringExtra("is_default");
-
         Map<String, String> params = new HashMap<>(1);
-        params.put("id", userId);
+        params.put("id", address.getId()+"");
         params.put("consignee", consignee);
         params.put("phone", phone);
         params.put("addr", addr);
-        params.put("zip_code", zip_code);
-        params.put("is_default", is_default);
+        params.put("zip_code", address.getZipCode());
+        params.put("is_default", address.getIsDefault()+"");
 
         okHttpHelper.doPost(Constants.API.ADDR_UPDATE, params, new SpotsCallBack<BaseResMsg>(this) {
 
@@ -141,6 +138,25 @@ public class AddressAddActivity extends BaseActivity {
             }
         });
 
+    }
+
+    /**
+     * 检查是否为空
+     */
+    private void check() {
+        String name = mEtConsignee.getText().toString().trim();
+        String phone = mEtPhone.getText().toString().trim();
+        String address = mTvAddress.getText().toString();
+        String address_des = mEtAddDes.getText().toString().trim();
+        if (TextUtils.isEmpty(name)){
+            ToastUtils.show(this,"请输入收件人姓名");
+        }else if (TextUtils.isEmpty(phone)){
+            ToastUtils.show(this,"请输入收件人电话");
+        }else if (TextUtils.isEmpty(address)){
+            ToastUtils.show(this,"请选择地区");
+        }else if (TextUtils.isEmpty(address_des)){
+            ToastUtils.show(this,"请输入具体地址");
+        }
     }
 
     /**
@@ -167,8 +183,6 @@ public class AddressAddActivity extends BaseActivity {
                     public void onSuccess(Response response, BaseResMsg resMsg) {
                         if (resMsg.getStatus() == BaseResMsg.STATUS_SUCCESS) {
                             setResult(RESULT_OK);
-                            System.out.println(resMsg.getStatus() + "----------" + resMsg.getMessage());
-
                             finish();
 
                         }
@@ -182,6 +196,19 @@ public class AddressAddActivity extends BaseActivity {
             }
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK){
+            if (requestCode == Constants.ADDRESS_ADD){//添加地址
+                creatAddress();
+            }else if (requestCode == Constants.ADDRESS_EDIT){//编辑地址
+                Address address = (Address) getIntent().getExtras().getSerializable("addressBean");
+                updateAddress(address);
+            }
+        }
     }
 
     /**
@@ -315,17 +342,14 @@ public class AddressAddActivity extends BaseActivity {
     /**
      * 初始化地址数据
      */
-    private void initAddress() {
-
-        TAG = getIntent().getIntExtra("tag", -1);
-
+    private void initAddress(Address address) {
         if (TAG == Constants.TAG_SAVE) {
             mToolBar.getRightButton().setText("保存");
             mToolBar.setTitle("添加新地址");
         } else if (TAG == Constants.TAG_COMPLETE) {
             mToolBar.getRightButton().setText("完成");
             mToolBar.setTitle("编辑地址");
-            showAddress();
+            showAddress(address);
         }
 
         /**

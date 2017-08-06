@@ -9,7 +9,6 @@ import com.cjj.MaterialRefreshLayout;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.adapter.BaseAdapter;
 import com.cniao5.cniao5shop.adapter.HWAdapter;
-import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.Page;
 import com.cniao5.cniao5shop.bean.Wares;
 import com.cniao5.cniao5shop.utils.Pager;
@@ -71,7 +70,7 @@ public class HotFragment extends BaseFragment implements Pager.onPageListener {
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.addItemDecoration(new DividerItemDecortion(getContext(), DividerItemDecortion.VERTICAL_LIST));
+//        mRecyclerView.addItemDecoration(new DividerItemDecortion(getContext(), DividerItemDecortion.VERTICAL_LIST));
     }
 
     @Override

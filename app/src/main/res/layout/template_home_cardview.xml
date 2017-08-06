@@ -57,6 +57,7 @@
 
                 <ImageView
                     android:id="@+id/imgview_small_top"
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -66,6 +67,7 @@
 
                 <ImageView
                     android:id="@+id/imgview_small_bottom"
+                    android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 

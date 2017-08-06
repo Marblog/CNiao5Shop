@@ -8,7 +8,6 @@ import android.view.View;
 import com.cniao5.cniao5shop.R;
 import com.cniao5.cniao5shop.activity.WaresListActivity;
 import com.cniao5.cniao5shop.adapter.HomeCampaignAdapter;
-import com.cniao5.cniao5shop.adapter.decoration.DividerItemDecortion;
 import com.cniao5.cniao5shop.bean.Banner;
 import com.cniao5.cniao5shop.bean.Campaign;
 import com.cniao5.cniao5shop.bean.HomeCampaign;
@@ -169,7 +168,7 @@ public class HomeFragment extends BaseFragment {
 
         mRecyclerView.setAdapter(mAdatper);
 
-        mRecyclerView.addItemDecoration(new DividerItemDecortion(getContext(),DividerItemDecortion.VERTICAL_LIST));
+//        mRecyclerView.addItemDecoration(new DividerItemDecortion(getContext(),DividerItemDecortion.VERTICAL_LIST));
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity()));
     }

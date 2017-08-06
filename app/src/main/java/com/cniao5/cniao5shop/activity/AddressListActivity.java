@@ -131,7 +131,7 @@ public class AddressListActivity extends BaseActivity {
 
         Intent intent = new Intent(this, AddressAddActivity.class);
         intent.putExtra("tag", Constants.TAG_SAVE);
-        startActivityForResult(intent, Constants.REQUEST_CODE);
+        startActivityForResult(intent, Constants.ADDRESS_ADD);
     }
 
     /**
@@ -220,14 +220,9 @@ public class AddressListActivity extends BaseActivity {
     private void editAddress(Address address) {
         Intent intent = new Intent(this, AddressAddActivity.class);
         intent.putExtra("tag", Constants.TAG_COMPLETE);
-        intent.putExtra("id", address.getId() + "");
-        intent.putExtra("consignee", address.getConsignee());
-        intent.putExtra("phone", address.getPhone());
-        intent.putExtra("addr", address.getAddr());
-        intent.putExtra("zip_code", address.getZipCode());
-        intent.putExtra("is_default", address.getIsDefault() + "");
+        intent.putExtra("addressBean", address);
 
-        startActivityForResult(intent, Constants.REQUEST_CODE);
+        startActivityForResult(intent, Constants.ADDRESS_EDIT);
     }
 
     /**
@@ -245,7 +240,6 @@ public class AddressListActivity extends BaseActivity {
         params.put("zip_code", address.getZipCode());
         params.put("is_default", address.getIsDefault() + "");
 
-        System.out.println("is_default-------" + address.getIsDefault());
 
         mHttpHelper.doPost(Constants.API.ADDR_UPDATE, params, new SpotsCallBack<BaseResMsg>(this) {
 
