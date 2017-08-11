@@ -53,9 +53,9 @@ Android 5.0 新技术：Toolbar、RecyclerView、CardView、Tablayout、Material
 
 四、封装
 
-    1. BaseActivity封装
-
-    2. BaseFragment封装
+    1. BaseFragment封装
+    
+    2. BaseActivity封装
 
     3. Adapter封装
 
